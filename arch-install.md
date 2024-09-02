@@ -5,7 +5,9 @@
 
 ## Installation steps
 ### Boot into installation media
-- download ISO, burn to USB, boot to installation screen command prompt
+- [download](https://archlinux.org/download/) ISO, burn to USB, boot to installation screen command prompt (aka archiso)
+- in BIOS, choose UEFI, but disable secure boot for now 
+- may do zfs in the future like [this](https://github.com/eoli3n/archiso-zfs)
 
 ### Confirm UEFI 64 bit
 ```
