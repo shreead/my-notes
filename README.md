@@ -3,4 +3,4 @@ I run arch btw
 
 Contents
 - Arch
-  - [Arch Install](arch-install.md)
+  - [Arch Install](arch/arch-install.md)
