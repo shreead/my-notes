@@ -1,3 +1,4 @@
+# Arch Install
 ## Sources
 - [https://wiki.archlinux.org/title/Installation_guide](https://wiki.archlinux.org/title/Installation_guide)
 - [https://gist.github.com/furdarius/b9e907227f01ba342040246638a718f3](https://gist.github.com/furdarius/b9e907227f01ba342040246638a718f3)
