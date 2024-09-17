@@ -157,7 +157,7 @@ virsh autostart hassos
 Provide static IP in the router (device name homeassistant).
 Or inside HA > Settings > System > Network.
 
-Open [homeassistant](http://10.10.0.9:8123)
+Open [homeassistant](http://10.10.0.9:8123) or [setup reverse proxy](reverse-proxy-npm.md)
 
 Restore from backup if available. 
 
