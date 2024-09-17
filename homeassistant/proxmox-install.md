@@ -17,12 +17,12 @@ HA > Settings > System
 - Mobile app
 
 ## Nginx Proxy Manager:
-ha.304ad.net
+ha.my.lan
 
 Edit configuration.yaml and add these lines:
 ```
 homeassistant:
-  external_url: "https://ha.304ad.net"
+  external_url: "https://ha.my.lan"
   internal_url: "http://10.10.0.9:8123"
 
 http:
