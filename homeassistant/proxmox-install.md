@@ -1,6 +1,6 @@
 # Proxmox Install
-## VM
-Easiest is to do it as a VM in Proxmox using ttek script:
+## Tteck Install Script
+Easiest is to do it as a VM in Proxmox using tteck script:
 https://tteck.github.io/Proxmox/#home-assistant-os-vm
 ```
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/vm/haos-vm.sh)"
@@ -17,23 +17,7 @@ HA > Settings > System
 - Mobile app
 
 ## Nginx Proxy Manager:
-ha.my.lan
-
-Edit configuration.yaml and add these lines:
-```
-homeassistant:
-  external_url: "https://ha.my.lan"
-  internal_url: "http://10.10.0.9:8123"
-
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 10.10.0.4 # the IP of my NPM container
-    - 10.10.0.0/16
-```
-
-## Mobile App
-Devices and integration > Mobile App
+[Setup reverse proxy](reverse-proxy-npm.md)
 
 ## Zigbee
 - Passthrough USB in Proxmox
