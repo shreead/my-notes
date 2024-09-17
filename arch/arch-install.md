@@ -29,7 +29,9 @@ ip a
 ```
 
 ### Confirm date/time is accurate
-`timedatectl`
+```
+timedatectl
+```
 
 ### Format disks and mount partitions
 ```
@@ -85,7 +87,9 @@ acerold
 ```
 
 ### Set root password
-`passwd`
+```
+passwd
+```
 
 ### Install bootloader (GRUB)
 ```
