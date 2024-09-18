@@ -2,7 +2,7 @@
 
 Source: [https://www.creatingsmarthome.com/index.php/2022/02/12/guide-start-up-and-shut-down-remote-linux-pc-using-home-assistant/](https://www.creatingsmarthome.com/index.php/2022/02/12/guide-start-up-and-shut-down-remote-linux-pc-using-home-assistant/)
 
-## 1.  Create remote user
+## 1.  Create Remote User
 ```
 sudo adduser homeassistant
 
