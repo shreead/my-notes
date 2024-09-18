@@ -5,7 +5,7 @@ Contents
 - Arch
   - [Arch Install](arch/arch-install.md)
 - Home Assistant
-  - Installation:
+  - Installation
     - [Proxmox Install](homeassistant/proxmox-install.md)
     - [KVM Install](homeassistant/kvm-install.md)
     - [Reverse Proxy Setup](homeassistant/reverse-proxy-npm.md)
