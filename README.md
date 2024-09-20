@@ -10,3 +10,5 @@ Contents
     - [KVM Install](homeassistant/kvm-install.md)
     - [Reverse Proxy Setup](homeassistant/reverse-proxy-npm.md)
   - [Remote PC Start/Shutdown](homeassistant/remote-pc-ssh.md)
+- ZFS:
+  - [Docker on ZFS](zfs/docker-on-zfs.md)
