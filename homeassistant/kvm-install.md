@@ -170,49 +170,45 @@ Guide taken mostly from [here](https://access.redhat.com/documentation/en-us/red
 
 Find the `idVendor` and `idProduct` of the USB device you want to attach.
 
-```
+```bash
 lsusb -v
 ```
 
-An example from my system, an Aeotec Z-wave:
-
+With Sonoff Zigbee dongle:
 ```
-  idVendor           0x0658 Sigma Designs, Inc.
-  idProduct          0x0200 Aeotec Z-Stick Gen5 (ZW090) - UZB
-```
-
-With the above, create an xml file:
-
-```
-sudo nano /var/lib/libvirt/images/hassos-vm/aeoteczwave.xml
+  idVendor           0x10c4 Silicon Labs
+  idProduct          0xea60 CP210x UART Bridge
 ```
 
-And insert
-
+Create the xml file:
 ```bash
+sudo nano /var/lib/libvirt/images/hassos-vm/sonoffdongle.xml
+```
+
+Insert above info:
+```xml
 <hostdev mode='subsystem' type='usb' managed='yes'>
   <source>
-    <vendor id='0x0658'/>
-    <product id='0x0200'/>
+    <vendor id='0x10c4'/>
+    <product id='0xea60'/>
   </source>
 </hostdev>
 ```
 
 [NOTE] - the “managed=‘yes’” makes it behave as if “nodedev-detach” and “nodedev-reattach” had been called at correct times, so you shouldn’t need to do anything else.
 
-Then you can attach USB devices using virsh
-
-```
-virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml --persistent
+Attach using virsh:
+```bash
+virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/sonoffdongle.xml --persistent
 ```
 
 [Note] use “virsh detach-device [DOMAIN] [FILE]” to detach, where it will reattach again upon next boot. Add “–persistent” to this, to make the detach persistent.
 
 You might have issues where after a reboot of Ubuntu, it doesn’t show up. In that case, I have found that detatching and attaching again solves this, assuming the file is /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml, then do:
-
+```
 virsh detach-device hassos --file /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml --persistent
 virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml --persistent
-
+```
 ## 5 - After install
 
 ```
