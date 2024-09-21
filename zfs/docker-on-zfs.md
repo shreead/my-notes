@@ -16,7 +16,7 @@ sudo rm -rf /var/lib/docker/*
 2.  Create a zpool or dataset and mount:
 ```sh
 sudo zpool create -f zpool-docker -m /var/lib/docker sda sdb
-sudo zfs create zpool/docker -m /var/lib/docker
+sudo zfs create tank/docker -m /var/lib/docker
 ```
 
 3.  Edit `/etc/docker/daemon.json` and add:
@@ -30,6 +30,7 @@ sudo zfs create zpool/docker -m /var/lib/docker
 ```sh
 sudo docker info
   Storage Driver: zfs
-     Zpool: zpool-docker
+     Zpool: tank
      Zpool Health: ONLINE
-```
+     Parent Dataset: tank/docker
+```  
