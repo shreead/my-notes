@@ -19,6 +19,7 @@ Contents
   - [Resize VM disk](proxmox/resize-vm-disk.md)
   - [ZFS in Proxmox](proxmox/zfs-in-proxmox.md)
   - [Plex LXC and graphic card passthrough](proxmox/plex-lxc.md)
+  - [Xpenology VM](proxmox/xpenology-vm.md)
 - ZFS:
   - [Basics](zfs/basics.md)
   - [Docker on ZFS](zfs/docker-on-zfs.md)
