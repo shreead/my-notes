@@ -1,11 +1,9 @@
 # My Notes
-I run arch btw
-
 Contents
 - Ansible
   - [Basics](ansible/basics.md)
   - [Roles](ansible/roles.md)
-- Arch
+- Arch (I run arch btw)
   - [Arch Install](arch/arch-install.md)
 - Home Assistant
   - Installation
