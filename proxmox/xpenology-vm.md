@@ -21,3 +21,9 @@ Source: [https://blog.nootch.net/post/poor-mans-synology-nas-on-proxmox/](https:
 ## Install and configure DSM
 1.  Boot into Arc DSM mode
 2.  Complete the rest from http://IP:5000
+
+## Install qemu-guest-agent
+Source: [https://xpenology.com/forum/topic/69482-qemu-guest-agent-install/](https://xpenology.com/forum/topic/69482-qemu-guest-agent-install/)
+1. Package center: install Qemu guest agent (repository https://spk7.imnks.com if not present)
+2. Enable ssh, run `sudo sed -i 's/package/root/g' /var/packages/qemu-ga/conf/privilege`. disable SSH
+3. Stop VM, enable agent in Proxmox UI and start
