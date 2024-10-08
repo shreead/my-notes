@@ -21,7 +21,7 @@ Format
 ```
 
 Example:
-```
+```yaml
 ---
 - hosts: vm-test01
   become: true
