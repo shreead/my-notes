@@ -7,3 +7,6 @@
 - `zpool list (-v) (tank)`
 - `zfs list -o space (tank/docker)`
 
+## Replicate without root
+- `sudo zfs allow -u shree send,snapshot,hold tank`
+
