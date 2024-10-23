@@ -139,7 +139,7 @@ Create VM:
 ```
 cd /var/lib/libvirt/images/hassos-vm
 
-virt-install --import --name hass \
+virt-install --import --name hassos \
 --memory 4096 --vcpus 4 --cpu host \
 --disk haos_ova-13.1.qcow2,format=qcow2,bus=virtio \
 --network bridge=br0,model=virtio \
@@ -149,9 +149,10 @@ virt-install --import --name hass \
 --boot uefi
 ```
 
-Enable autostart:
+Enable/disable autostart:
 ```
 virsh autostart hassos
+virsh autostart --disable hassos
 ```
 
 Provide static IP in the router (device name homeassistant).
@@ -204,14 +205,15 @@ virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/sonoffdongle
 
 [Note] use “virsh detach-device [DOMAIN] [FILE]” to detach, where it will reattach again upon next boot. Add “–persistent” to this, to make the detach persistent.
 
-You might have issues where after a reboot of Ubuntu, it doesn’t show up. In that case, I have found that detatching and attaching again solves this, assuming the file is /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml, then do:
+You might have issues where after a reboot of Ubuntu, it doesn’t show up. In that case, I have found that detatching and attaching again solves this, assuming the file is //var/lib/libvirt/images/hassos-vm/sonoffdongle.xml, then do:
 ```
-virsh detach-device hassos --file /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml --persistent
-virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/aeotechzwave.xml --persistent
+virsh detach-device hassos --file /var/lib/libvirt/images/hassos-vm/sonoffdongle.xml --persistent
+virsh attach-device hassos --file /var/lib/libvirt/images/hassos-vm/sonoffdongle.xml --persistent
 ```
 ## 5 - After install
 
 ```
+virsh
 virsh help
 virsh list
 virsh list --all  # including stopped
