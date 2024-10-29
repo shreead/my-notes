@@ -1,5 +1,6 @@
 # My Notes
 Contents
+- [Homelab overview](homelab-overview.md)
 - Ansible
   - [Basics](ansible/basics.md)
   - [Roles](ansible/roles.md)
