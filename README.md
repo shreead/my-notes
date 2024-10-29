@@ -23,3 +23,5 @@ Contents
 - ZFS:
   - [Basics](zfs/basics.md)
   - [Docker on ZFS](zfs/docker-on-zfs.md)
+- Misc:
+  - [Traefik](traefik.md)
