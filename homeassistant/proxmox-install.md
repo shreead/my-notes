@@ -1,4 +1,4 @@
-# Proxmox Install
+# Home Assistant Proxmox Install
 ## Tteck Install Script
 Easiest is to do it as a VM in Proxmox using tteck script:
 https://tteck.github.io/Proxmox/#home-assistant-os-vm
