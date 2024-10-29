@@ -10,3 +10,12 @@
 ## Replicate without root
 - `sudo zfs allow -u shree send,snapshot,hold tank`
 
+## Browsable snapshots
+- Inside the dataset directory, there's a browsable .zfs directory.
+```
+cd tank/data
+cd .zfs
+cd snapshot
+cd zfs_auto_snap_..... 
+```
+and find the file, cp to another directory
