@@ -1,26 +1,33 @@
 # Homelab Overview
 ## Internet
 ISP provided locked modem/AP
-Second router behind it - Mikrotik Hex S (11/2023)
+Second router behind it - Mikrotik Hex S
 
 ## Servers
 ### Proxmox
+LXC (Plex) and VMs
 Specs:
+- Motherboard: ASRock B660M PRO RS
 - Processor: Intel Core i5-12400 2.5GHz 6C/12T
 - Memory: 64GB DDR4-3200
 - Storage: 10 HDD bays, 4 SSD bays
 
-### Dell Wyze 7050
+### TrueNAS
+Pull Backup from other servers
+Specs:
+- Motherboard: Supermicro X11SSL-F
+- Processor: Intel Xeon i3-1220 v6 
+- Memory: 64GB
+
+### Dell Wyse 7050
 Services:
 - Pihole + Unbound
 
-### Dell
+### Dell Optiplex MFF
 Services:
-- Traefik
 - Bookstack
+- Frigate
+- Home Assistant
+- Traefik
+- Unifi Controller
 
-### TrueNAS
-Specs:
-- Motherboard: Supermicro X11SSL-F
-- Processor: Intel Xeon i3-1220 v6
-- Memory: 64GB
