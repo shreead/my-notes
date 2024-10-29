@@ -18,7 +18,7 @@ Contents
   - [Resize VM disk](proxmox/resize-vm-disk.md)
   - [ZFS in Proxmox](proxmox/zfs-in-proxmox.md)
   - [Plex LXC and iGPU passthrough](proxmox/plex-lxc.md)
-  - [Proxmox VM](homeassistant/proxmox-install.md)
+  - [Homeassistant VM](homeassistant/proxmox-install.md)
   - [Xpenology VM](proxmox/xpenology-vm.md)
 - ZFS:
   - [Basics](zfs/basics.md)
