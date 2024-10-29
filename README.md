@@ -1,5 +1,6 @@
 # My Notes
-Available [here](https://shreead.github.io/my-notes/)
+Also available [here](https://shreead.github.io/my-notes/)
+
 Contents
 - [Homelab overview](homelab-overview.md)
 - Ansible
