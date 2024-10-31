@@ -27,3 +27,4 @@ Contents
   - [Docker on ZFS](zfs/docker-on-zfs.md)
 - Misc:
   - [Traefik](traefik.md)
+  - [hostnamectl](hostnamectl.md)
