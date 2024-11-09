@@ -3,6 +3,8 @@ Also available [here](https://shreead.github.io/my-notes/)
 
 Contents
 - [Homelab overview](homelab-overview.md)
+- Linux basics
+  - [rsync](linux-basics/rsync.md)
 - Ansible
   - [Basics](ansible/basics.md)
   - [Roles](ansible/roles.md)
