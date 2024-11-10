@@ -80,3 +80,8 @@ Number  Start   End     Size    File system  Name  Flags
 (parted) resizepart 1 100%
 (parted) quit
 ```
+
+5. resize2fs
+```
+sudo resize2fs /dev/vda1
+```
