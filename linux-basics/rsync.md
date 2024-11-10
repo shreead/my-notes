@@ -1,18 +1,22 @@
 # rsync
 Example:
 ```
-rsync -axXv --progress <source> <destination>
+rsync -axXvh --info=progress2 <source> <destination>
 ```
 
 Options:  
 ```
+-a archive
+-x don't cross filesystems
+-X x-attributes
+-v verbose
+-h human readable sizes
+
 -P --progress  # shows progress during transfer
 
 --info=progress2  # stats for whole transfer
 
 --dry-run
-
-| pv -leps NUMBER-OF-FILES --> for progress bar
 ```
 
 ## rsync daemon
