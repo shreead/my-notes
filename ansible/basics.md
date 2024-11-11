@@ -25,7 +25,8 @@ become_ask_pass=True
 ```
 
 ## Inventory
-Define in `ansible.cfg`
+Define location in `ansible.cfg` as above. 
+
 Sample `hosts`:
 ```
 [webservers]
