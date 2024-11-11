@@ -6,7 +6,7 @@ https://tteck.github.io/Proxmox/#home-assistant-os-vm
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/vm/haos-vm.sh)"
 ```
 
-VM allows add-on store, HACS etc.
+VM allows add-ons
 
 ## System Settings
 HA > Settings > System
