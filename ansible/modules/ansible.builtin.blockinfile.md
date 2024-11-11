@@ -1,8 +1,8 @@
-Source: [https://stackoverflow.com/posts/77369023/timeline](https://stackoverflow.com/posts/77369023/timeline)
+# ansible.builtin.blockinfile
 
-If your end goal is to replace content between those lines, you should use [ansible.builtin.blockinfile](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html) module with `state: present` and replace it right away! 
+Replace a block of text in a file. 
 
-**text.txt**
+Sample `text.txt`
 
 ```
 123
@@ -13,13 +13,12 @@ bad_entry_2
 321
 ```
 
-**playbook.yaml**
-
+Sample playbook:
 ```yaml
-- name: Replace block
-  hosts: localhost
+- name: Replace block of text
+  hosts: hostname
   tasks:
-    - name: Replace block
+    - name: Replace block of text
       ansible.builtin.blockinfile:
         path: "{{ playbook_dir }}/text.txt"
         marker: "#{mark}"
@@ -37,3 +36,23 @@ bad_entry_2
 
           lines
 ```
+
+Result `text.txt`
+```
+123
+#BeginEntries
+my awsome content with
+
+even
+
+multiple
+
+blank
+
+lines
+#EndEntries
+321
+```
+
+## References
+[https://stackoverflow.com/posts/77369023/timeline](https://stackoverflow.com/posts/77369023/timeline)
