@@ -1,3 +1,4 @@
+# Create Ubuntu cloud-init template
 1. Download the cloud image from ubuntu:
 `wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img`
 
@@ -20,19 +21,21 @@
 `qm set 999 --scsi1 local-zfs:cloudinit`
 
 8. Configure cloudinit
-```
+```sh
 wget https://github.com/my.keys
 # qm set 999 --tags ubuntu-template,24.04,cloudinit
 qm set 999 --ciuser <USERNAME>
-qm set 999 --cipassword $(openssl passwd -6 <PASSWORD>)
+qm set 999 --cipassword $(openssl passwd -6 <PASSWORD>)  # hash password with SHA512
 qm set 999 --sshkeys my.keys
 qm set 999 --ipconfig0 ip=dhcp
 ```
 9. Convert to template
 `qm template 999`
 
-Script:
-```
+
+## Script:
+```sh
+#!/bin/bash
 wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
 
 qemu-img resize noble-server-cloudimg-amd64.img 32G
@@ -55,3 +58,6 @@ qm set 999 --ipconfig0 ip=dhcp
 
 qm template 999
 ```
+
+# References
+- [https://github.com/UntouchedWagons/Ubuntu-CloudInit-Docs](https://github.com/UntouchedWagons/Ubuntu-CloudInit-Docs)
