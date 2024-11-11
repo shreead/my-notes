@@ -1,6 +1,6 @@
 # ansible.posix.mount
 Example:
-```
+```yaml
 - name: Create cifs-credentials for media
   ansible.builtin.copy:
     content: |
