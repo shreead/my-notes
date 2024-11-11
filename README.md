@@ -23,6 +23,7 @@ Contents
 - KVM
   - [Initial setup](kvm/initial-setup.md)
 - Proxmox
+  - [Ubuntu cloudinit template](proxmox/cloudinit-image.md)
   - [Resize VM disk](proxmox/resize-vm-disk.md)
   - [ZFS in Proxmox](proxmox/zfs-in-proxmox.md)
   - [Plex LXC and iGPU passthrough](proxmox/plex-lxc.md)
