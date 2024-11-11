@@ -23,6 +23,7 @@ Install
       - git
       - tree
     state: latest # or present
+    update_cache: true # if not done previously
 ```
 
 Uninstall
