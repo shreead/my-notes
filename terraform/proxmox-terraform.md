@@ -37,4 +37,72 @@ Apply terraform role to the token:
 pveum acl modify / --tokens 'terraform-prov@pve!terraform-token' --roles TerraformProv
 ```
 
+## main.tf
+Define the provider:
+```
+terraform {
+  required_providers {
+    proxmox = {
+      source = "telmate/proxmox"
+      version = "3.0.1-rc4"
+    }
+  }
+}
+```
 
+Provider proxmox:
+```
+provider "proxmox" {
+  # connection
+  pm_api_url = "https://10.10.10.20:8006/api2/json"
+  pm_api_token_id = var.proxmox_pve2_token_id
+  pm_api_token_secret = var.proxmox_pve2_token_secret
+  pm_tls_insecure = true # if self-signed certificate
+
+  # logging
+  pm_log_enable = true
+  pm_log_file   = "terraform-plugin-proxmox.log"
+  pm_debug      = true
+  pm_log_levels = {
+    _default    = "debug"
+    _capturelog = ""
+  }
+}
+
+# these are defined in terraform.tfvars
+variable "proxmox_pve2_token_secret" { }
+variable "proxmox_pve2_token_id" { }
+```
+
+Resource `proxmox_vm_qemu`
+```
+resource "proxmox_vm_qemu" "test_vm_creation" {
+
+  name        = "vm-terr01"
+  target_node = "pve2"
+
+#  clone = "ub-2404-cldinit-tmp"
+  ipconfig0 = "gw=10.10.0.1,ip=10.10.200.59/16"
+
+  cores    = 3
+  sockets  = 1
+  cpu      = "host"
+  memory   = 2560
+
+  network {
+    model = "virtio"
+    bridge = "vmbr0"
+  }
+
+  disk {
+    slot         = "virtio0"
+    type         = "disk"
+    storage      = "local-zfs"
+    size         = "4G"
+    backup       = true
+  }
+
+}
+```
+
+### 1. 
