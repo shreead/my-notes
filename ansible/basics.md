@@ -45,7 +45,7 @@ ansible-inventory --list -i hosts
 ## Ad-hoc commands
 Format:
 ```
-ansible [pattern] -m [module] -a "[module options]"
+ansible [pattern] -i [inventory-file] -m [module-name] -a "[module options]" --key-file [ssh-key-file] --ask-become-pass
 ```
 Initial ping:
 ```
