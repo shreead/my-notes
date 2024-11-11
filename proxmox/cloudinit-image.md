@@ -34,17 +34,12 @@ qm set 999 --ipconfig0 ip=dhcp
 Script:
 ```
 wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
-
 qemu-img resize noble-server-cloudimg-amd64.img 32G
 
-qm create 999 --name "ubuntu-2404-cloudinit-template" --ostype l26 --memory 1024 --agent 1 --bios seabios --machine q35 --cpu host --socket 1 --cores 1 --vga serial0 --serial0 socket --net0 virtio,bridge=vmbr0
-
+qm create 999 --name "ubuntu-2404-cloudinit-template" --ostype l26 --memory 1024 --agent 1 --bios seabios --machine q35 --cpu host --socket 1 --cores 1 --vga virtio --net0 virtio,bridge=vmbr0
 qm importdisk 999 noble-server-cloudimg-amd64.img local-zfs
-
 qm set 999 --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-999-disk-0,discard=on
-
 qm set 999 --boot order=virtio0
-
 qm set 999 --scsi1 local-zfs:cloudinit
 
 wget https://github.com/my.keys
