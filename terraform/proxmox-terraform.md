@@ -50,7 +50,7 @@ terraform {
 }
 ```
 
-Provider proxmox:
+Provider block `proxmox`:
 ```
 provider "proxmox" {
   # connection
@@ -74,7 +74,7 @@ variable "proxmox_pve2_token_secret" { }
 variable "proxmox_pve2_token_id" { }
 ```
 
-Resource `proxmox_vm_qemu`
+Resource block `proxmox_vm_qemu`:
 ```
 resource "proxmox_vm_qemu" "test_vm_creation" {
 
@@ -105,4 +105,4 @@ resource "proxmox_vm_qemu" "test_vm_creation" {
 }
 ```
 
-### 1. 
+### 1. Resource `proxmox_vm_qemu`
