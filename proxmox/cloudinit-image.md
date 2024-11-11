@@ -2,25 +2,39 @@
 
 ## Steps:
 1. Download the cloud image from ubuntu:
-`wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img`
+```sh
+wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+```
 
 2. Resize
-`qemu-img resize noble-server-cloudimg-amd64.img 32G`
+```sh
+qemu-img resize noble-server-cloudimg-amd64.img 32G
+```
 
 3. Create VM
-`qm create 999 --name "ubuntu-2404-cloudinit-template" --ostype l26 --memory 1024 --agent 1 --bios seabios --machine q35 --cpu host --socket 1 --cores 1 --vga serial0 --serial0 socket --net0 virtio,bridge=vmbr0`
+```sh
+qm create 999 --name "ubuntu-2404-cloudinit-template" --ostype l26 --memory 1024 --agent 1 --bios seabios --machine q35 --cpu host --socket 1 --cores 1 --vga serial0 --serial0 socket --net0 virtio,bridge=vmbr0
+```
 
 4. Import disk
-`qm importdisk 999 noble-server-cloudimg-amd64.img local-zfs`
+```sh
+qm importdisk 999 noble-server-cloudimg-amd64.img local-zfs
+```
 
 5. Attach disk to VM:
-`qm set 999 --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-999-disk-0,discard=on`
+```sh
+qm set 999 --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-999-disk-0,discard=on
+```
 
 6. Set boot order:
-`qm set 999 --boot order=virtio0`
+```sh
+qm set 999 --boot order=virtio0
+```
 
 7. Attach empty cloudinit drive
-`qm set 999 --scsi1 local-zfs:cloudinit`
+```sh
+qm set 999 --scsi1 local-zfs:cloudinit
+```
 
 8. Configure cloudinit
 ```sh
@@ -31,8 +45,11 @@ qm set 999 --cipassword $(openssl passwd -6 <PASSWORD>)  # hash password with SH
 qm set 999 --sshkeys my.keys
 qm set 999 --ipconfig0 ip=dhcp
 ```
+
 9. Convert to template
-`qm template 999`
+```
+qm template 999
+```
 
 
 ## Script:
