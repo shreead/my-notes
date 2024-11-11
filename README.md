@@ -8,6 +8,10 @@ Contents
 - Ansible
   - [Basics](ansible/basics.md)
   - [Roles](ansible/roles.md)
+  - Modules
+    - [blockinfile](ansible/modules/ansible.builtin.blockinfile.md)
+    - [mount](ansible/modules/ansible.posix.mount.md)
+    - [docker_container](ansible/modules/community.docker.docker_container.md)
 - Arch (I run arch btw)
   - [Arch Install](arch/arch-install.md)
 - Home Assistant
