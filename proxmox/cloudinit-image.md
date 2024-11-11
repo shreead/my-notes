@@ -1,4 +1,6 @@
 # Create Ubuntu cloud-init template
+
+## Steps:
 1. Download the cloud image from ubuntu:
 `wget https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img`
 
