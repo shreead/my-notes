@@ -78,8 +78,8 @@ wget https://github.com/my.keys
 
 qm set $VMID --ciuser username
 
-echo "Enter password (will be shown in plain text):"
-read userpass
+echo "Enter password:"
+read -s userpass
 qm set $VMID --cipassword $(openssl passwd -6 $userpass)
 
 qm set $VMID --sshkeys my.keys
