@@ -25,18 +25,26 @@ become_ask_pass=True
 ```
 
 ## Inventory
-Define in `ansible.cfg`
-Sample `hosts`:
+Define location in `ansible.cfg` as above. 
+Define IP address, port, etc in `.ssh/config` if using same. 
+
+Sample inventory:
 ```
+[all:vars]
+ansible_user='some-user'
+ansible_become=yes
+ansible_become_method=sudo
+
 [webservers]
 server01
 10.10.1.5
 web01.example.com
 
 [vms]
-server02 ansible_host=10.10.1.2 ansible_port=22 ansible_user=some-user
-server03 ansible_user=another_user
+server02 ansible_host=10.10.1.2 ansible_port=22 ansible_user=other-user
+server03 ansible_user=third_user
 ```
+
 List inventory:
 ```
 ansible-inventory --list -i hosts
@@ -45,11 +53,11 @@ ansible-inventory --list -i hosts
 ## Ad-hoc commands
 Format:
 ```
-ansible [pattern] -m [module] -a "[module options]"
+ansible [pattern] -i [inventory-file] -m [module-name] -a "[module options]" --key-file [ssh-key-file] --ask-become-pass
 ```
 Initial ping:
 ```
-ansible all --key-file ~/.ssh/ansible-key -i inventory -m ping --ask-become-pass
+ansible all -i inventory -m ping --key-file ~/.ssh/ansible-key --ask-become-pass
 ```
 Ping only:
 ```

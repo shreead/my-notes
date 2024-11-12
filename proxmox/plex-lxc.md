@@ -1,8 +1,5 @@
 # Plex LXC
 ## Enable Hardware Transcode
-
-https://www.reddit.com/r/Proxmox/comments/136r72x/intel_igpu_lxc_passthrough_for_plex_hardware/
-
 Edit `/etc/pve/lxc/101.conf` which should contain:
 ```
 arch: amd64
@@ -29,3 +26,6 @@ lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create=file
 lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
 ```
+
+## References
+https://www.reddit.com/r/Proxmox/comments/136r72x/intel_igpu_lxc_passthrough_for_plex_hardware/

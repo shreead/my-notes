@@ -1,11 +1,14 @@
-Format
+# community.docker.docker_container
+Deploy docker containers via ansible. 
+
+## Format
 ```yaml
 ---
 - hosts: hostname
   become: true
   tasks:
     - name: Start a container
-      docker_container:
+      community.docker.docker_container:
         name: 'container name'
         image: 'image source'
         state: 'started'
@@ -20,7 +23,7 @@ Format
       tags: tag1
 ```
 
-Example:
+## Examples:
 ```yaml
 ---
 - hosts: vm-test01
@@ -29,7 +32,7 @@ Example:
     - vm-test01-vars.yml
   tasks:
     - name: Start calibre-web
-      docker_container:
+      community.docker.docker_container:
         name: 'calibre-web'
         image: 'lscr.io/linuxserver/calibre-web'
         state: 'started'
@@ -40,19 +43,19 @@ Example:
           PGID: "1000"
           TZ: "America/Detroit"
         volumes:
-          - "/home/shree/calibre-web/config:/config"
-          - "/home/shree/calibre-web/books:/books"
+          - "{{ DOCKER_LOCATION }}/calibre-web/config:/config"
+          - "{{ DOCKER_LOCATION }}/calibre-web/books:/books"
         labels:
           homepage.group: 'MEDIA'
-          homepage.name: 'Calibre-web-TEST'
+          homepage.name: 'Calibre-web'
           homepage.icon: 'si-calibreweb'
-          homepage.href: 'http://10.10.200.152:8083'
+          homepage.href: 'http://{{ IP_ADDRESS }}:8083'
           homepage.widget.type: 'calibreweb'
-          homepage.widget.url: 'http://10.10.200.152:8083'
+          homepage.widget.url: 'http://{{ IP_ADDRESS }}:8083'
       tags: calibre-web
 
     - name: DockerProxy
-      docker_container:
+      community.docker.docker_container:
         name: 'dockerproxy'
         image: 'ghcr.io/tecnativa/docker-socket-proxy'
         state: 'started'
