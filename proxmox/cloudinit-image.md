@@ -24,6 +24,7 @@ qm importdisk 999 noble-server-cloudimg-amd64.img local-zfs
 5. Attach disk to VM:
 ```sh
 qm set 999 --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-999-disk-0,discard=on
+# or qm set $VMID --scsihw virtio-scsi-pci --virtio0 shiny:$VMID/vm-$VMID-disk-0,discard=on
 ```
 
 6. Set boot order:
