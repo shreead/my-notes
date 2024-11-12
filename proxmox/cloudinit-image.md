@@ -68,8 +68,7 @@ qm create $VMID --name "ubuntu-2404-cloudinit-template" --ostype l26 --memory 10
 qm importdisk $VMID noble-server-cloudimg-amd64.img $STORAGE
 
 qm set $VMID --scsihw virtio-scsi-pci --virtio0 $STORAGE:$VMID/vm-$VMID-disk-0.raw,discard=on
-#qm set $VMID --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-$VMID-disk-0,discard=on
-
+# or qm set $VMID --scsihw virtio-scsi-pci --virtio0 local-zfs:vm-$VMID-disk-0,discard=on
 
 qm set $VMID --boot order=virtio0
 
@@ -84,6 +83,7 @@ read userpass
 qm set $VMID --cipassword $(openssl passwd -6 $userpass)
 
 qm set $VMID --sshkeys my.keys
+
 qm set $VMID --ipconfig0 ip=dhcp
 
 qm template $VMID
