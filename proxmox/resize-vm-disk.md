@@ -47,13 +47,13 @@ fdisk -l
 
 2. Confirm change in guest (vda if using VirtIO):
 ```
-dmesg | grep vda
+sudo dmesg | grep vda
 [ 3982.979046] vda: detected capacity change from 34359738368 to 171798691840
 ```
 
 3. Print the current partition table
 ```
-fdisk -l /dev/vda
+sudo fdisk -l /dev/vda
 Device       Start       End   Sectors  Size Type
 /dev/vda1  2099200 251658206 249559007  119G Linux filesystem
 /dev/vda14    2048     10239      8192    4M BIOS boot
@@ -66,9 +66,6 @@ Device       Start       End   Sectors  Size Type
 ```
 sudo parted /dev/vda
 (parted) print
-Warning: Not all of the space available to /dev/vda appears to be used, you can
-fix the GPT to use all of the space (an extra 268435456 blocks) or continue
-with the current setting?
 Fix/Ignore? F 
 
 Number  Start   End     Size    File system  Name  Flags
