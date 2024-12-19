@@ -23,7 +23,7 @@ Unattended-Upgrade::Mail "{{ MY_EMAIL }}";
 Unattended-Upgrade::MailOnlyOnError "true";
 ```
 
-## 3. Restart unattended0upgrades service
+## 3. Restart unattended-upgrades service
 ```
 sudo systemctl restart unattended-upgrades
 ```
