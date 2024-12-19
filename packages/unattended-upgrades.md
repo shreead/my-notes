@@ -21,6 +21,13 @@ Unattended-Upgrade::Allowed-Origins {
 
 Unattended-Upgrade::Mail "{{ MY_EMAIL }}";
 Unattended-Upgrade::MailOnlyOnError "true";
+Unattended-Upgrade::Sender "unattended-upgrades@{{ inventory_hostname }}";
+
+Unattended-Upgrade::Automatic-Reboot "ture";
+Unattended-Upgrade::Automatic-Reboot-WithUsers "false";
+Unattended-Upgrade::Automatic-Reboot-Time "04:00";
+
+
 ```
 
 ## 3. Restart unattended-upgrades service
