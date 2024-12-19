@@ -34,3 +34,6 @@ Unattended-Upgrade::Automatic-Reboot-Time "04:00";
 ```
 sudo systemctl restart unattended-upgrades
 ```
+
+### Ref:
+https://github.com/mvo5/unattended-upgrades/blob/master/README.md
