@@ -5,4 +5,11 @@
 
 - dd
   - `dd if=filename.iso of=/dev/sdb bs=4M status=progress`
+ 
+# Delete a filetype
+```
+find . -name "*.bak" -type f -delete
+```
+
+
 
