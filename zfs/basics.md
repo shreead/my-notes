@@ -19,3 +19,18 @@ cd snapshot
 cd zfs_auto_snap_..... 
 ```
 and find the file, cp to another directory
+
+## Checkpoint
+Check for checkpoint:
+```
+zpool get checkpoint tank
+zpool list tank
+```
+Create checkpoint:
+```
+zpool checkpoint tank
+```
+Do stuff, and if everything is ok, discard checkpoint:
+```
+zpool checkpoint -d tank
+```
