@@ -10,7 +10,8 @@ Specs:
 - Motherboard: ASRock B660M PRO RS
 - Processor: Intel Core i5-12400 2.5GHz 6C/12T
 - Memory: 64GB DDR4-3200
-- Storage: 10 HDD bays, 4 SSD bays
+- Storage: 10 HDD bays, 4 SSD bays.
+- ZFS 6x12TB, raidz1, 3 wide, 2 vdevs, 43TiB usable 
 
 ### TrueNAS
 Pull Backup from other servers
@@ -30,4 +31,5 @@ Services:
 - Home Assistant
 - Traefik
 - Unifi Controller
+
 
