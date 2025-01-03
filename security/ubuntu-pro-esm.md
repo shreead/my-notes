@@ -6,12 +6,12 @@ sudo apt install ubuntu-advantage-tools
 
 ## 2. Check status
 ```
-pro status
+sudo pro status
 ```
 Check source repository of installed packages
 ```
-pro security-status
-pro security-status --esm-apps   # list of packages covered by esm-apps
+sudo pro security-status
+sudo pro security-status --esm-apps   # list of packages covered by esm-apps
 ```
 
 ## 3. Enable Pro
