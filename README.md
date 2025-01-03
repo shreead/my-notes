@@ -9,9 +9,14 @@ Contents
   - [Basics](ansible/basics.md)
   - [Roles](ansible/roles.md)
   - Modules
-    - [blockinfile](ansible/modules/ansible.builtin.blockinfile.md)
-    - [mount](ansible/modules/ansible.posix.mount.md)
-    - [docker_container](ansible/modules/community.docker.docker_container.md)
+    - [apt](ansible/modules/apt.md)
+    - [blockinfile](ansible/modules/blockinfile.md)
+    - [copy](ansible/modules/copy.md)
+    - [docker_container](ansible/modules/docker_container.md)
+    - [file](ansible/modules/file.md)
+    - [git](ansible/modules/git.md)
+    - [mount](ansible/modules/mount.md)
+    - [shell](ansible/modules/shell.md)
 - Arch (I run arch btw)
   - [Arch Install](arch/arch-install.md)
 - Home Assistant
