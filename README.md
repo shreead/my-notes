@@ -29,6 +29,8 @@ Contents
   - [Plex LXC and iGPU passthrough](proxmox/plex-lxc.md)
   - [Homeassistant VM](homeassistant/proxmox-install.md)
   - [Xpenology VM](proxmox/xpenology-vm.md)
+- Security
+  - [Ubuntu Pro (ESM)](security/ubuntu-pro-esm.md)
 - ZFS:
   - [Basics](zfs/basics.md)
   - [Docker on ZFS](zfs/docker-on-zfs.md)
