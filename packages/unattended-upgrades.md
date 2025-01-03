@@ -26,9 +26,8 @@ Unattended-Upgrade::Sender "unattended-upgrades@{{ inventory_hostname }}";
 Unattended-Upgrade::Automatic-Reboot "ture";
 Unattended-Upgrade::Automatic-Reboot-WithUsers "false";
 Unattended-Upgrade::Automatic-Reboot-Time "04:00";
-
-
 ```
+If [Ubuntu Pro](../security/ubuntu-pro-esm.md) is enabled, uncomment the two lines. 
 
 ## 3. Restart unattended-upgrades service
 ```
