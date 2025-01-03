@@ -1,10 +1,10 @@
 # Ubuntu Pro ESM
-**Install essentials**
+## 1. Install essentials
 ```
 sudo apt install ubuntu-advantage-tools
 ```
 
-Check status:
+## 2. Check status
 ```
 pro status
 ```
@@ -14,7 +14,7 @@ pro security-status
 pro security-status --esm-apps   # list of packages covered by esm-apps
 ```
 
-Enable pro:
+## 3. Enable Pro
 ```
 sudo pro attach
 ```
@@ -23,15 +23,22 @@ and then follow instructions on https://ubuntu.com/pro/attach using the provided
 ```
 sudo pro attach [TOKEN]
 ```
-Update/upgrade apps
+
+## 4. Update/upgrade
 ```
 sudo apt update && sudo apt upgrade -y
 ```
-Also enable on unattended-upgrades file `/etc/apt/apt.conf.d/50unattended-upgrades`
+
+## 5. Allow unattended-upgrades
+Edit `/etc/apt/apt.conf.d/50unattended-upgrades` to add:
 ```
 Unattended-Upgrade::Allowed-Origins {
         "${distro_id}ESMApps:${distro_codename}-apps-security";
         "${distro_id}ESM:${distro_codename}-infra-security";
 };
 
+```
+Restart unattended-upgrades
+```
+sudo systemctl restart unattended-upgrades
 ```
