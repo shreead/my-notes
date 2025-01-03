@@ -23,6 +23,7 @@ and then follow instructions on https://ubuntu.com/pro/attach using the provided
 ```
 sudo pro attach [TOKEN]
 ```
+`esm-apps`, `esm-infra`, and `livepatch` will be automatically enabled. 
 
 ## 4. Update/upgrade
 ```
