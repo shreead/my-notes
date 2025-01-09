@@ -1,17 +1,28 @@
-PCI Passthrough
+# PCI Passthrough
 
-nano /etc/default/grub
+1. Edit grub
+`nano /etc/default/grub`
+
 update this line to:
+```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=off i915.enable_gvt=0"
+```
 
-update-grub
+2. Update grub
+`update-grub`
 
-
-
-nano /etc/modules
-
+3. Add modules
+`nano /etc/modules`
+```
 vfio
 vfio_iommu_type1
 vfio_pci
 vfio_virqfd
+```
+
+4. Reboot
+
+5. Proxmox GUI:
+- Datacenter > Resource Mappings > Name the PCI
+- Add PCI in the VM
 
