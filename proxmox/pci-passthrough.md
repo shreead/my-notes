@@ -23,6 +23,6 @@ vfio_virqfd
 4. Reboot
 
 5. Proxmox GUI:
-- Datacenter > Resource Mappings > Name the PCI
-- Add PCI in the VM
+- Datacenter > Resource Mappings > PCI > Add - select and give a name
+- Add the above named PCI in the VM
 
