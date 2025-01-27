@@ -7,11 +7,14 @@
 - `zpool list (-v) (tank)`
 - `zfs list -o space (tank/docker)`
 
-## Replicate without root
-- `sudo zfs allow -u shree send,snapshot,hold tank`
+## zfs allow
+To replicate without root
+```
+sudo zfs allow -u shree send,snapshot,hold tank
+```
 
-## Browsable snapshots
-- Inside the dataset directory, there's a browsable .zfs directory.
+## Snapshots
+Snapshots are browsable. Inside the dataset directory, there's a browsable .zfs directory.
 ```
 cd tank/data
 cd .zfs
