@@ -2,11 +2,11 @@
 
 ## 1. Prepare the Raspberry Pi
 Burn Raspbian Lite on an SD card using RPi imager
-- ssh access, public keys
-- wifi username/password
+- setup ssh access, public keys
+- enter WiFi SSID/password
 
 Boot raspberry pi
-- ssh into it, `apt update`, `apt upgrade`
+- ssh, `apt update`, `apt upgrade`
 - `lsusb -vvv` to confirm printer shows up
 - also `ls /dev/usb/` to see which port - usually `lp0`
 
@@ -26,28 +26,25 @@ fontconfig
 # libtiff5 is not available anymore
 ```
 
-libtiff6 or libtiff5-dev are the alternatives, worked for me with libtiff5-dev
+libtiff6 or libtiff5-dev are the alternatives, libtiff5-dev worked for me. 
 
 ## 4. Prepare venv
-Create new venv at `$HOME/venv` and binaries will be in `$HOME/venv/bin`
+Create new venv at `$HOME/venv`, binaries will be in `$HOME/venv/bin`.
 ```
 python3 -m venv ~/venv
 ```
-Add the venv path to .profile file so that `brother_ql` can be run directly
+Add the venv path to `.profile` file so that `brother_ql` can be run directly. 
 ```
 if [ -d "$HOME/venv/bin" ] ; then
     PATH="$HOME/venv/bin:$PATH"
 fi
 ```
-Load the profile with
-```
-export .profile
-```
+Load the profile with `export .profile`
 
 ## 6. Install brother_ql
 Github page: https://github.com/pklaus/brother_ql
 ```
-sudo ~/venv/bin/pip3 install brother_ql
+sudo venv/bin/pip3 install brother_ql
 ```
 brother_ql can be used standalone via cli, but web service makes it much better. 
 
@@ -67,7 +64,7 @@ Install requirements, they're in `requirements.txt` file and can be installed vi
 ```
 sudo ~/venv/bin/pip3 install -r requirements.txt
 ```
-But this doesn't work with newer version of bottle, so install the requirements individually, choosing older version of bottle. 
+But this didn't work with newer version of bottle, so install the requirements individually, choosing older version of bottle. 
 ```
 sudo ~/venv/bin/pip3 install bottle==8.1.2
 sudo ~/venv/bin/pip3 install jinja2
@@ -110,21 +107,21 @@ cd ~/brother_ql_web
 sudo ~/venv/bin/python3 brother_ql_web.py
 ```
 
-Login from web browser http://10.10.12.34/ and confirm everythig works. 
+Login from web browser http://10.10.100.3/ and confirm everythig works. 
 
 ## 8. Autostart
 Add task to crontab to run as root using `sudo nano /etc/crontab`
 ```
 @reboot    root    cd /home/shree/web_app/brother_ql_web; /home/shree/venv/bin/python3 brother_ql_web.py >> /home/shree/web_app/brother_ql_web/logfile.log 2>&1 &
 ```
-This also saves a log. 
+The above job also saves a log. 
 
 ```
 @reboot    root    cd /home/shree/web_app/brother_ql_web; /home/shree/venv/bin/python3 brother_ql_web.py > /dev/null &
 ```
 If log is not needed. 
 
-## 9. Reverse Proxy
+## 9. Reverse Proxy with Traefik
 Add to `dynamic.yml`
 ```
 http:
@@ -145,4 +142,19 @@ http:
 ```
 It's now reachable at https://labelprinter.mydomain/
 
+Add shortcut to homepage in `services.yaml` file:
+```
+- DEVICES:
+    - Label Printer:
+        icon: mdi-printer-pos
+        href: 'https://labelprinter.{{ MY_DOMAIN }}'
+        ping: 'labelprinter.{{ MY_DOMAIN }}'
+```
+
+Make filesystem readonly
+```
+sudo raspi-config > Performance Options > Overlay File System > Enable read-only file system
+```
+
 ## 10. Add printer to Grocy
+Seems impossible. 
